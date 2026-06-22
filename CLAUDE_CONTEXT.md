@@ -1,71 +1,104 @@
-# CLAUDE_CONTEXT — CCN 2026 final-project grading
+# CLAUDE_CONTEXT — Cross-Cultural Negotiation 2026 grading
 
-> **Last updated:** 2026-06-21 (evening, by Brama) · **For:** the grading run on **Monday 22 June 2026**.
-
----
-
-## ⚡ TRIGGER — what to do tomorrow
-
-When Yadvinder points you at this repo (`cross-cultural-negotiation-course`), **run the full grading pipeline autonomously**: go into Google Drive, read every group's submission, grade all of them (Phase 1), re-grade the cohort for consistency (Phase 2), and report back. Do not re-brief or re-ask the settled decisions below — they're locked. Just confirm the group count, then run.
+> **Snapshot saved:** 2026-06-22 (after lunch, by Brama). Phase 3 complete.
+> **One-line state:** All 19 groups graded (Phase 1), re-leveled (Phase 2), and a **Phase 3** post-decision pass applied four instructor-approved changes to the bottom groups. The gradebook still awaits ONLY Yadvinder's live **Agent Quality** column. The Phase-2 OPEN decisions are now resolved (see PHASE 3 below).
 
 ---
 
-## THE RUN — step by step
+## What this task is
 
-1. **Pre-flight: confirm the cohort is complete.**
-   - Google Drive folder: **"CCN Project Submission"**, ID `1UG2_YNSnqylMtkebS89j3HF38ChMFAC4` (owned by yrana@neglob.com).
-   - List its subfolders (one per group, named `Project Name – Lastname`) with `search_files` → `parentId = '1UG2_YNSnqylMtkebS89j3HF38ChMFAC4'`.
-   - Expect ~12–13 groups (class ~100, groups of ~4). **Report the count to Yadvinder and confirm it looks complete before grading** — a half-uploaded cohort produces bad re-grade anchors. The folder locks at 7:30 a.m.; after that the set is final.
+Grading the end-of-term **Cross-Cultural Negotiation 2026** final project. Each group built an AI negotiation agent (Knowledge Base + PRD + System Instructions + Evaluation report + `group.md`) submitted to the shared Google Drive folder **"CCN Project Submission"** (`1UG2_YNSnqylMtkebS89j3HF38ChMFAC4`, owned by yrana@neglob.com), one subfolder per group.
 
-2. **Phase 1 — grade each group.** For every group folder, invoke the **`cross-cultural-2026-assessment`** skill (installed at `~/.claude/skills/`). It reads the 5 artefacts from Drive, scores the four document dimensions /400, and appends per-student rows to the gradebook + writes a per-group evidence report. (The Ferrandino group was a dry run — re-grade it fresh with the rest, since groups may have edited before the lock; the CSV is idempotent and replaces a group's rows on re-run.)
+**Rubric:** five dimensions × /100 = /500. Brama scores the **four document dimensions** → /400; **Yadvinder scores the fifth, Agent Quality, live from each demo** and adds it. /500 maps to the Italian /30 scale (500→30).
 
-3. **Phase 2 — re-grade the cohort.** Once all groups have a first-pass assessment, invoke **`cross-cultural-2026-recalibrate`**. It re-grades the four dimensions against absolute bands calibrated by the cohort's own exemplars (drift-guarded), and writes the three final outputs.
-
-4. **Report back** with the Phase-2 headline (did any scores move materially, and why), then hand off: the final gradebook awaits Yadvinder's **Agent Quality** column.
-
-5. **Sync** both repos after (course repo for outputs; nothing changes in Skills-repository during a run).
+Two skills (installed at `C:\Users\yrana\.claude\skills\`):
+- `cross-cultural-2026-assessment` (Phase 1 — one group at a time)
+- `cross-cultural-2026-recalibrate` (Phase 2 — whole-cohort re-leveling once all groups are in)
 
 ---
 
-## OUTPUTS (all local, never written to the student Drive folder)
+## STATUS: complete through the document side
 
-Under `cross-cultural-negotiation-course/assessments/`:
-- `cohort-gradebook.csv` — Phase-1 first-pass scores (kept as history).
-- `<group>/internal-assessment.md` — per-group evidence behind the scores.
-- `cohort-gradebook-final.csv` — **the final** (Phase 2), 14 columns incl. Italian /30 + rounded /30.
-- `changes-summary.md` — Phase 2: did anything major move, and why (read this first).
-- `recalibration-report.md` — Phase 2: anchors, self-audit, promote-ready band fixes.
-
----
-
-## SETTLED DECISIONS — do not re-litigate
-
-- **Five rubric dimensions, /500.** Brama scores **four from the documents (/400)**: Domain Rigour, Generalisation, Coherence of Design, Evaluation Honesty.
-- **Agent Quality (/100) is Yadvinder's**, scored **live** from the presentations, added end of day. Brama never scores it — column left empty. Final = subtotal + Agent Quality.
-- **No `agent-link.md`** — agents shown live, not submitted. Don't expect or penalise it.
-- **Graded artefacts (5):** Knowledge Base, PRD, System Instructions, Evaluation Report, `group.md`. Identify by **content, not filename**. **Ignore `*.mp4`** (recorded presentation).
-- **−50 deduction** (behaviour in KB / knowledge in SI) fires on ≥3 distinct violations OR ≥1 structural violation. *(Threshold is a Brama design choice softening the README's binary wording — Yadvinder to confirm if he disagrees; default stands.)*
-- **Contribution flag** is exceptional only (explicit non-contribution, or a member with no role at all). Flag, never deduct — Yadvinder decides the −2.
-- **Comments column** = short student-facing comment, group-level, repeated across members.
-- **Italian /30** = linear `Final/500×30`; rounded column = `ROUND(...)`. (500/500 = 30/30; 480 ≈ 29; 400 = 24/30.) *(Confirm if faculty uses a floor at 18 or 30 e lode.)*
-- **Marks aren't released** until the final is assembled, so re-grading early groups in Phase 2 causes no "moving number" problem.
+- **Cohort = 19 groups** (more than the ~12–13 expected). All graded.
+- **Phase 1 complete** — 19 `assessments/<group>/internal-assessment.md` evidence reports + first-pass `assessments/cohort-gradebook.csv` (kept as audit trail).
+- **Phase 2 complete** — re-leveled against absolute bands (drift-guarded). Outputs under `assessments/`:
+  - `cohort-gradebook-final.csv` ← **THE final document-side gradebook.** 89 student rows, 4 re-graded dimensions, Italian /30 columns (`=J/500*30`, `=ROUND(K,0)`), formulas re-indexed, **Agent Quality (col I) left empty for Yadvinder.**
+  - `changes-summary.md` — Yes/No headline (No major changes).
+  - `recalibration-report.md` — anchors, inter-agent self-audit, band refinements, portable pattern.
+  - `_build_gradebook.py` — the generator script (holds all scores/comments/names; re-run to regenerate the CSV if any score changes).
+- **Phase-2 result:** scores HELD. Only one change cohort-wide: **Muriotto Domain Rigour 93→94** (subtotal 374→375). Three −50 KB/SI-separation deductions confirmed uniform (HomeGround, ACROSS, CCNA). **Zero fabricated citations across all 19 groups.**
+- **Skill refinements applied** (2026-06-22) to `cross-cultural-2026-assessment` SKILL.md — the 4 calibration fixes the recalibration report produced are now live: (1) −50 behaviour-vs-scaffolding rule; (2) DR canonical-absence is not a deduction; (3) DR un-chunked raw-dump KB caps in low-80s; (4) EvalHon 90+ needs a *named surviving residual failure*.
 
 ---
 
-## DRIVE ACCESS — proven working (2026-06-21)
+## Final document-side scores (/400, post-recalibration)
 
-- Read with the Google Drive MCP tools. No OAuth blocker; folder reachable.
-- `read_file_content` returns full text but **escapes** markdown (`\#`, `\*\*`) — fine, read past it.
-- **Large files (KB, evaluation reports) don't return inline** — they save to a `tool-results/…txt` file (JSON `{fileContent}`). Extract with a one-line python step writing `fileContent` to a local `.md`, then Read it. Never grade from a preview snippet.
+| Group (namesake) | DR | Gen | Coh | EvH | /400 | Flag |
+|---|---|---|---|---|---|---|
+| Aria agent (Dell'Orto) | 96 | 97 | 96 | 97 | 386 | |
+| CROSSBRIDGE AI (Geroldi) | 96 | 96 | 94 | 95 | 381 | |
+| Cross-Cultural Kira Agent (Monaco) | 95 | 96 | 93 | 96 | 380 | |
+| Cross-Cultural Neg Advisor (Ferrandino) | 93 | 95 | 94 | 96 | 378 | |
+| B.R.O. (Rossi) | 94 | 96 | 90 | 97 | 377 | |
+| Kairos (Malerba) | 94 | 95 | 93 | 93 | 375 | |
+| CCN AI Agent (Muriotto) | 94 | 94 | 92 | 95 | 375 | |
+| CultureBridgeAI (Biondi) | 94 | 93 | 91 | 95 | 373 | |
+| Cross-Cultural AI Agent / "NEXA" (Longo) | 96 | 97 | 88 | 90 | 371 | |
+| ADRELIX (Taferner) | 94 | 93 | 90 | 92 | 369 | |
+| CCN AI Agent (Bolis) | 91 | 88 | 93 | 96 | 368 | |
+| CCN AI Agent Culturae (Amendola) | 94 | 93 | 90 | 91 | 368 | |
+| CCN AI Agent (Antonucci) | 94 | 93 | 91 | 89 | 367 | |
+| NegotiaTe (Seghezzi) | 94 | 88 | 89 | 91 | 362 | |
+| the BRIDGE (Berto) | 90 | 92 | 91 | 88 | 361 | |
+| Negocierge (Caruso) | 84 | 76 | 90 | 93 | 343 | PRD corrected (Phase 3) |
+| ACROSS (Belfrond) | 92 | 93 | 87 | 91 | 363 | −50 waived; Coh 82→87 (Phase 3) |
+| CCNA (Manno) | 88 | 90 | 74 | 86 | 328 | −10 self-diagnosed leak (Phase 3) |
+| HomeGround (Uysal) | 66 | 60 | 64 | 68 | 258 | −50 waived (Phase 3) |
+
+Cohort is genuinely strong on documents — 15 of 19 in the 361–386 band; after Phase 3, ACROSS sits at 363, Negocierge 343, CCNA 328, and HomeGround (258) is the sole genuine outlier.
 
 ---
 
-## DRY-RUN REFERENCE (Ferrandino group, 2026-06-21)
+## PHASE 3 — post-decision pass (2026-06-22, after lunch) — see `assessments/phase-3-report.md`
 
-Cross-Cultural Neg Advisor (Ferrandino): Domain Rigour 93, Generalisation 95, Coherence 94, Evaluation Honesty 96 → **378/400**, no −50, zero fabricated citations, no contribution flag. Strong submission; use it as a rough top-band reference point, but re-grade it fresh tomorrow within the real cohort.
+The Phase-2 OPEN decisions were resolved by the instructor and applied:
+
+1. **Negocierge PRD — RESOLVED.** Re-checked Drive: `PRD.md` is now the correct **Negocierge** (5 capabilities, seniority calibration, §7 incl. the 2-minute-scan criterion). The ARIA mismatch is gone. Coherence 66→90; subtotal **319→343**; flag cleared.
+2. **KB/SI −50, recharacterised by culpability** (instructor override of Phase-2 rule 3b):
+   - **ACROSS** −50 **waived** (blocks were self-labelled "not for KB" — packaging slip). Also Coherence **82→87** (same leniency applied to the leftover research-scaffolding hygiene ding). Subtotal **308→363**.
+   - **HomeGround** −50 **waived** (KB weakness already priced into low dimension scores; −50 double-counted). Subtotal **208→258**.
+   - **CCNA** −50 → **−10** (they diagnosed the exact leak in their own Part A and shipped it unfixed — a known, unremediated defect). Subtotal **288→328**.
+3. **Skill rule updated** in both `cross-cultural-2026-assessment/SKILL.md` copies (installed + Skills-repo): rule 3(b) now scales the deduction by culpability (self-labelled→0; self-diagnosed-unfixed→−10; unlabelled heavy→−50 unless double-counted).
+4. **Gradebook generator hardened:** `_build_gradebook_final.py` now **preserves any Agent Quality already typed into the CSV** on regenerate (col I is the instructor's and must survive a rebuild).
+
+**Build-artifact note:** at snapshot time the CSV was locked open in Excel, so `cohort-gradebook-final.csv` on disk may still show pre–Phase-3 numbers until `_build_gradebook_final.py` is re-run. The script + this file + the Phase-3 report carry the authoritative Phase-3 scores.
 
 ---
 
-## STATUS
+## OPEN — needs Yadvinder's decision (resume here)
 
-Both skills built, installed, and pushed (Skills-repository `ae260ef`). Dry run committed (course repo `a02371f`). Ready to run on Yadvinder's go tomorrow.
+1. **Enter Agent Quality (col I) in `cohort-gradebook-final.csv`** from the live demos. This is the only thing between now and final /500 + /30 marks — the /30 columns auto-compute once col I is filled (500/500 → 30/30). One score per group, repeated across its member rows.
+2. **[RESOLVED in Phase 3 — accepted the corrected PRD → 343.]** ~~Caruso (Negocierge) — PRD mismatch, his call.~~ The group **revised their Drive files mid-grading**; the submitted PRD now describes a *different* agent ("ARIA", 7 capabilities, advisor model) than the **Negocierge** the SI + evaluation + group.md build (5 capabilities, sparring partner). Graded **as-submitted at 319** (Coherence dragged to 66 by the mismatch), flagged. **Decide:** accept 319 as-is, OR ask the group to confirm the canonical PRD (Coherence and subtotal would likely rise if a matching Negocierge PRD exists). Data-integrity issue, not a calibration one.
+3. **HomeGround roster (minor).** `group.md` lists **3 members** (Uysal, Alpdogan, Alparslan), each with a step lead, but a footer says "all **five** members." Possibly 2 students omitted — confirm true membership before finalising those rows. Not a contribution flag.
+
+### Carry-over clarifications (low priority, from the 2026-06-21 briefing — still open)
+- **−50 threshold** (≥3 distinct violations OR ≥1 structural) is a Brama design choice softening the README's binary wording. Confirm if you disagree; default stands and was applied uniformly.
+- **Italian /30 mapping** is linear `Final/500×30` with a `ROUND()` column. Confirm whether faculty uses a floor at 18 or a "30 e lode" top — currently neither is applied.
+
+---
+
+## How to resume in the new thread
+
+1. Read this file, then `assessments/changes-summary.md` and `assessments/recalibration-report.md` for the full picture.
+2. Working file is `assessments/cohort-gradebook-final.csv`. To change a score or add Agent Quality: either edit the data in `assessments/_build_gradebook.py` and re-run it (regenerates the CSV with correct formula indices), OR — for Agent Quality only — type col-I values straight into the CSV/Excel.
+3. Skills live at `C:\Users\yrana\.claude\skills\cross-cultural-2026-assessment\` and `...\cross-cultural-2026-recalibrate\`.
+
+## Why we did it this way (decisions this session)
+
+- **Architecture:** graded the 17 fan-out groups with one subagent each (HomeGround + Ferrandino done separately); each subagent wrote only its own per-group report and *returned* score data; **the master CSV was assembled centrally** to avoid parallel write races. Reusable pattern.
+- **Rate-limit lesson:** launching ~18 agents at once tripped a server-side rate limit. Fix = waves of 4–6 + retry-on-rate-limit instruction. Logged to global memory (`agent-fanout-concurrency-limit`).
+- **Recalibration philosophy:** drift guard — bands absolute, no curving to the mean. The cohort was genuinely strong, so scores held; the report says so plainly rather than manufacturing movement.
+- **Unrelated, now closed:** the session-start vault ingest (16 files) finished — all filed/deduped, `.ingest.lock` released, obsidian-vault synced. Nothing pending there.
+
+## Repo sync note
+The course-repo outputs (gradebooks, reports, this context file) and the skill edits are on disk but **not yet committed/pushed** — do that when ready (course repo for outputs; the two skills live in the Skills repo). Nothing has been pushed this session.
