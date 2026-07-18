@@ -1,7 +1,19 @@
 # CLAUDE_CONTEXT — Cross-Cultural Negotiation 2026 grading
 
-> **Snapshot saved:** 2026-06-22 (after lunch, by Brama). Phase 3 complete.
-> **One-line state:** All 19 groups graded (Phase 1), re-leveled (Phase 2), and a **Phase 3** post-decision pass applied four instructor-approved changes to the bottom groups. The gradebook still awaits ONLY Yadvinder's live **Agent Quality** column. The Phase-2 OPEN decisions are now resolved (see PHASE 3 below).
+> **Snapshot saved:** 2026-07-05 (by Brama). Final grades computed and entered in SVE — awaiting Yadvinder's revision + signature.
+> **One-line state:** Course CLOSED except for Yadvinder's own checks: final 70/30 grades are registered (draft stage) in the university SVE system; he revises on screen, then does "Inoltro alla firma" himself.
+
+---
+
+## 2026-07-05 — Final grades: test merge + SVE registration
+
+- **Test (30%) pulled from Blackboard** via its internal API (course `_158192_1`, column `_1024332_1`) → `assessments/test-scores-blackboard.csv` (95 students; 88 scored /30; 7 no-shows blank; duplicate Schiantarelli enrollment dropped, graded row kept).
+- **Final gradebook** → `assessments/final-results-project70-test30.csv` (89 rows, sorted by last name): Project /30 = the v2 file's `Final Score` column, Test /30, Final = 0.7·P + 0.3·T exact, plus rounded-UP column. Verified 500/500: independent Decimal recomputation, fresh Blackboard re-pull, zero mismatches.
+- **Discovered:** v2 `Final Score` = `Score /30 (rounded)` **+1 for all groups, +2 for Aria agent** (his uplift, confirmed deliberate-looking, carried through as instructed).
+- **Name fixes (Blackboard roster authoritative):** project file's "Cairoli" → **Carioli**; "Jia, Yuan" was swapped → **Yuan, Jia** (project 29, test 25, final 28).
+- **SVE (secure.unicatt.it):** all 87 eligible registered students' marks entered AND autosaved at the *registrazione voto* draft stage (the app saves on selection — no save button exists; logged as global memory `feedback_autosave_apps_test_one_row_first`). **31 → "30 e lode"** (Bolla, Dell'Orto, Picari, Piccolo, Pichler). Verified on-site vs CSV: all 87 match. **"Inoltro alla firma" NOT touched** — Yadvinder revises, then signs.
+- **Next session cases:** Demiryontar (on appello, no project/no test — left blank in SVE); Yuan Jia (final 28, not registered in time); Solomon Cosmina (project 29, test pending). Five others have neither project nor test and are not on the appello (Amore, Ariano, Giuliani, Ruffino, Trabucchi); Blackboard also carries a phantom duplicate Schiantarelli enrollment.
+- **SVE viewing note:** the registration list defaults to students still awaiting a vote — tick "Tutti gli iscritti" → Ricerca to see all 88.
 
 ---
 
