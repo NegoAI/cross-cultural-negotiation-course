@@ -16,7 +16,6 @@ The Cross-Cultural Negotiation 2026 student project (instructor Yadvinder S. Ran
 - `final-submission/README.md`: what students submit.
 - `assessments/`: per-group evidence reports, gradebooks (`cohort-gradebook-final.v2.csv`, `final-results-project70-test30.csv`), `RESULTS-cross-cultural-2026.md`, `recalibration-report.md`, `phase-3-report.md`, and the generator scripts `_build_gradebook.py` and `_build_gradebook_final.py`.
 - `single assessment route/`: exam questions and feedback for the two single-exam students.
-- `CLAUDE_CONTEXT.md`: where grading stands. Read it first.
 
 ## This repo's limits
 
