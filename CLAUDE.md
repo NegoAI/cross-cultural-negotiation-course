@@ -24,5 +24,5 @@ The Cross-Cultural Negotiation 2026 student project (instructor Yadvinder S. Ran
 
 ## Procedures
 
-- Grading skills: `cross-cultural-2026-assessment` (one group), then `cross-cultural-2026-recalibrate` (whole cohort), under `C:/Users/yrana/.claude/skills/`.
+- Grading skills: `cross-cultural-2026-assessment` (one group), then `cross-cultural-2026-recalibrate` (whole cohort), in `C:/Users/yrana/repos/Skills-repository/`. They are switched off between cohorts; read each `SKILL.md` there directly, or relink with the command in `Skills-repository/CLAUDE.md`.
 - Regenerate a gradebook: run the matching `assessments/_build_gradebook*.py` by absolute path.
